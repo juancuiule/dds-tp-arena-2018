@@ -16,7 +16,8 @@ Cada estudiante tiene muchas asignaciones de tareas, que son las relaciones entr
 No se maneja el concepto de curso (al menos por ahora)
 
 Aún el sistema web donde se persistirán las notas no se encuentra realizado, por lo tanto los datos utilizados deberán sacarse de memoria.
-Objetivo
+
+## Objetivo
 
 El objetivo principal es una aplicación de escritorio desarrollada en la tecnología Java 8 que permita, para un estudiante:
 Ver su nota actual para cada asignación, y saber si la aprobó.
