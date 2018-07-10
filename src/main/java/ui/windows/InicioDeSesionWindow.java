@@ -6,14 +6,12 @@ import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.PasswordField;
 import org.uqbar.arena.widgets.TextBox;
-import org.uqbar.arena.widgets.tables.Column;
-import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
-import model.Auth;
 import model.Estudiante;
+import ui.vm.DashboardViewModel;
 import ui.vm.InicioDeSesionViewModel;
 
 public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> {
@@ -54,6 +52,8 @@ public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> 
 		Boolean loginCorrecto = this.getModelObject().login();
 		if(loginCorrecto) {
 			System.out.println("Login correcto! Bienvenido al sistema de lectura de notas");
+			SimpleWindow<DashboardViewModel> dashboard = new DashboardWindow(this, this.getModelObject().getLegajo());
+			dashboard.open();
 		} else {
 			System.out.println("Login incorrecto! Combinación legajo/contraseña erronea o estudiante inexistente");
 		}
