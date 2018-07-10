@@ -8,11 +8,13 @@ import model.repositories.Repositorios;
 public class Auth {
 	static public Boolean loginEstudiante(String legajo, String password) {
 		List<Estudiante> estudiantes = Repositorios.estudiantes.all();
-		System.out.println(estudiantes);
+
 		Optional<Estudiante> posibleEstudiante = estudiantes.stream()
-				.filter(estudiante -> estudiante.esCorrecto(legajo, password))
+				.filter(estudiante -> estudiante.getLegajo().equals(legajo)
+						&& estudiante.getPassword().equalsIgnoreCase(password))
 				.findFirst();
-		System.out.println(posibleEstudiante);
+
+		// Devuelve true si encuentra un usuario con esa combinacion legajo/password
 		return posibleEstudiante.isPresent();
 	}
 }

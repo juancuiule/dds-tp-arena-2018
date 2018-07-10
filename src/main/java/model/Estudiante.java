@@ -45,8 +45,4 @@ public class Estudiante {
 	public void setUsuarioGithub(String usuarioGithub) {
 		this.usuarioGithub = usuarioGithub;
 	}
-
-	public boolean esCorrecto(String legajo, String password) {
-		return legajo == this.legajo && password == this.password;
-	}
 }
