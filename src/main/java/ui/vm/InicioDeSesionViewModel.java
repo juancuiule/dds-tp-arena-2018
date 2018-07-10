@@ -11,34 +11,31 @@ import model.repositories.Repositorios;
 public class InicioDeSesionViewModel {
 
 	private List<Estudiante> estudiantes;
-	private String loginLegajo;
-	private String loginPassword;
+	private String legajo;
+	private String password;
 
 	public InicioDeSesionViewModel() {
 		this.estudiantes = Repositorios.estudiantes.all();
 	}
 
-	public String getLoginLegajo() {
-		return loginLegajo;
+	public String getLegajo() {
+		return legajo;
 	}
 
-	public void setLoginLegajo(String loginLegajo) {
-		this.loginLegajo = loginLegajo;
+	public void setLegajo(String legajo) {
+		this.legajo = legajo;
 	}
 
-	public String getLoginPassword() {
-		return loginPassword;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setLoginPassword(String loginPassword) {
-		this.loginPassword = loginPassword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
+
 	public boolean login() {
-		Boolean loginCorrecto = Auth.loginEstudiante(loginLegajo.toString(), loginPassword.toString());
-		Boolean loginAManoCorrecto = Auth.loginEstudiante("1589386", "1234abcd");
-		System.out.println(loginCorrecto);
-		System.out.println(loginAManoCorrecto);
-		return loginAManoCorrecto;
+		Boolean loginCorrecto = Auth.loginEstudiante(this.getLegajo(), this.getPassword());
+		return loginCorrecto;
 	}
 }

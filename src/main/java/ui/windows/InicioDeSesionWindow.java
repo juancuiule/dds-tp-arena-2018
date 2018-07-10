@@ -40,17 +40,22 @@ public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> 
 		
 		new TextBox(formPanel)
 			.setWidth(300)
-			.bindValueToProperty("loginLegajo");
+			.bindValueToProperty("legajo");
 		
 		new Label(formPanel)
 			.setText("Ingrese su contraseña");
 		
 		new PasswordField(formPanel)
 			.setWidth(300)
-			.bindValueToProperty("loginPassword");
+			.bindValueToProperty("password");
 	}
 	
 	protected void ingresar() {
-		this.getModelObject().login();
+		Boolean loginCorrecto = this.getModelObject().login();
+		if(loginCorrecto) {
+			System.out.println("Login correcto! Bienvenido al sistema de lectura de notas");
+		} else {
+			System.out.println("Login incorrecto! Combinación legajo/contraseña erronea o estudiante inexistente");
+		}
 	}
 }
