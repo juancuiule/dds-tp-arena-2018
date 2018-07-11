@@ -20,4 +20,8 @@ public class Asignacion {
 	public Stream<String> getNotas() {
 		return notas.stream().map((Nota nota) -> nota.toString());
 	}
+
+	public boolean esDe(String legajoEstudiante) {
+		return this.estudiante.suLegajoEs(legajoEstudiante);
+	}
 }

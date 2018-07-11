@@ -1,4 +1,4 @@
-package model;
+ package model;
 
 public class Estudiante {
 
@@ -26,6 +26,10 @@ public class Estudiante {
 		return legajo;
 	}
 
+	public boolean suLegajoEs(String legajoComparar) {
+		return this.legajo.equals(legajoComparar);
+	}
+	
 	public void setLegajo(String legajo) {
 		this.legajo = legajo;
 	}
