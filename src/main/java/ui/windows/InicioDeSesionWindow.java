@@ -6,14 +6,13 @@ import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.PasswordField;
 import org.uqbar.arena.widgets.TextBox;
-import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
-import model.Estudiante;
 import ui.vm.DashboardViewModel;
 import ui.vm.InicioDeSesionViewModel;
 
+@SuppressWarnings("serial")
 public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> {
 
 	public InicioDeSesionWindow(WindowOwner parent) {

@@ -11,6 +11,7 @@ import model.Auth;
 import model.Estudiante;
 import ui.vm.DashboardViewModel;
 
+@SuppressWarnings("serial")
 public class DashboardWindow  extends SimpleWindow<DashboardViewModel> {
 
 	public DashboardWindow(WindowOwner parent, String legajoEstudiante) {
@@ -20,8 +21,8 @@ public class DashboardWindow  extends SimpleWindow<DashboardViewModel> {
 	@Override
 	protected void addActions(Panel actionsPanel) {
 		new Button(actionsPanel)
-			.setCaption("Asignaturas")
-			.onClick(this::goToAsignaturas);
+			.setCaption("Asignaciones")
+			.onClick(this::goToAsignaciones);
 		new Button(actionsPanel)
 			.setCaption("Editar Perfil")
 			.onClick(this::goToEditarPerfil);
@@ -30,7 +31,7 @@ public class DashboardWindow  extends SimpleWindow<DashboardViewModel> {
 	@Override
 	protected void createFormPanel(Panel panel) {}
 	
-	protected void goToAsignaturas() {
+	protected void goToAsignaciones() {
 		System.out.println("Quiero ir a asignaciones");
 	}
 	
