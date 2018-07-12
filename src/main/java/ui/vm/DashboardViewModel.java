@@ -20,4 +20,7 @@ public class DashboardViewModel {
 	public Estudiante estudiante() {
 		return estudiante;
 	}
+	public String getLegajo() {
+		return estudiante.getLegajo();
+	}
 }

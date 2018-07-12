@@ -1,11 +1,14 @@
- package model;
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Estudiante {
-
 	String nombre;
 	String legajo;
 	String password;
 	String usuarioGithub;
+	List<Tarea> tareas = new ArrayList<Tarea>();
 
 	public Estudiante(String nombre, String legajo, String password, String usuarioGithub) {
 		this.nombre = nombre;
@@ -26,10 +29,6 @@ public class Estudiante {
 		return legajo;
 	}
 
-	public boolean suLegajoEs(String legajoComparar) {
-		return this.legajo.equals(legajoComparar);
-	}
-	
 	public void setLegajo(String legajo) {
 		this.legajo = legajo;
 	}
@@ -48,5 +47,21 @@ public class Estudiante {
 
 	public void setUsuarioGithub(String usuarioGithub) {
 		this.usuarioGithub = usuarioGithub;
+	}
+
+	public List<Tarea> getTareas() {
+		return tareas;
+	}
+
+	public void setTareas(List<Tarea> tareas) {
+		this.tareas = tareas;
+	}
+
+	public void agregarTarea(Tarea tarea) {
+		this.tareas.add(tarea);
+	}
+
+	public boolean suLegajoEs(String legajoComparar) {
+		return this.legajo.equals(legajoComparar);
 	}
 }

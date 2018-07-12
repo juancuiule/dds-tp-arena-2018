@@ -10,6 +10,7 @@ import org.uqbar.arena.windows.WindowOwner;
 import model.Auth;
 import model.Estudiante;
 import ui.vm.DashboardViewModel;
+import ui.vm.TareasViewModel;
 
 @SuppressWarnings("serial")
 public class DashboardWindow  extends SimpleWindow<DashboardViewModel> {
@@ -33,6 +34,9 @@ public class DashboardWindow  extends SimpleWindow<DashboardViewModel> {
 	
 	protected void goToAsignaciones() {
 		System.out.println("Quiero ir a asignaciones");
+		SimpleWindow<TareasViewModel> asignaciones =
+				new TareasWindow(this, this.getModelObject().estudiante());
+		asignaciones.open();
 	}
 	
 	protected void goToEditarPerfil() {
