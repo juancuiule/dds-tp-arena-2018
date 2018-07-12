@@ -7,6 +7,7 @@ import org.uqbar.arena.windows.WindowOwner;
 
 import ui.vm.AsignacionesViewModel;
 import ui.vm.DashboardViewModel;
+import ui.vm.PerfilViewModel;
 
 @SuppressWarnings("serial")
 public class DashboardWindow  extends SimpleWindow<DashboardViewModel> {
@@ -26,7 +27,9 @@ public class DashboardWindow  extends SimpleWindow<DashboardViewModel> {
 	}
 
 	@Override
-	protected void createFormPanel(Panel panel) {}
+	protected void createFormPanel(Panel panel) {
+		this.setTitle("Dashoboard");
+	}
 	
 	protected void goToAsignaciones() {
 		System.out.println("Quiero ir a asignaciones");
@@ -36,5 +39,7 @@ public class DashboardWindow  extends SimpleWindow<DashboardViewModel> {
 	
 	protected void goToEditarPerfil() {
 		System.out.println("Quiero ir a editar perfil");
+		SimpleWindow<PerfilViewModel> perfil = new PerfilWindow(this, this.getModelObject().getLegajo());
+		perfil.open();
 	}
 }
