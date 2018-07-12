@@ -2,10 +2,10 @@
 
 public class Estudiante {
 
-	String nombre;
-	String legajo;
-	String password;
-	String usuarioGithub;
+	private String nombre;
+	private String legajo;
+	private String password;
+	private String usuarioGithub;
 
 	public Estudiante(String nombre, String legajo, String password, String usuarioGithub) {
 		this.nombre = nombre;

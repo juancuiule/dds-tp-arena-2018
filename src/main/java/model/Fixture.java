@@ -15,7 +15,8 @@ public class Fixture {
 		AsignacionesRepository repoAsignaciones = Repositorios.asignaciones();
 
 		Tarea parcialDDS = new Tarea("1° Parcial - Diseño");
-		Tarea tpGDD = new Tarea("Trabaoj Practico - Gestión");
+		Tarea tpGDD = new Tarea("Trabjo Practico - Gestión");
+		Tarea parcialSuperior = new Tarea("Parcial - Matematica Superior");
 
 		Estudiante juan = new Estudiante("juan", "1589386", "1234abcd", "juancuiule");
 
@@ -24,6 +25,9 @@ public class Fixture {
 
 		List<Nota> notasTP = new ArrayList<Nota>(Arrays.asList(new NotaConceptual("R"), new NotaConceptual("B-")));
 		Asignacion tpJuan = new Asignacion(juan, tpGDD, notasTP);
+		
+		List<Nota> notasParcialSuperior = new ArrayList<Nota>(Arrays.asList(new NotaNumerica(2.0), new NotaNumerica(1.0)));
+		Asignacion parcialSuperiorJuan = new Asignacion(juan, parcialSuperior, notasParcialSuperior);
 
 		// No puedo agregar notas así porque al ser observable dispara eventos que
 		// rompen todo...
@@ -34,6 +38,7 @@ public class Fixture {
 		repoEstudiantes.agregar(juan);
 		repoAsignaciones.agregar(tpJuan);
 		repoAsignaciones.agregar(parcialJuan);
+		repoAsignaciones.agregar(parcialSuperiorJuan);
 	}
 
 }

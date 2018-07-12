@@ -1,14 +1,11 @@
 package ui.windows;
 
-import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
-import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
-import model.Auth;
-import model.Estudiante;
+import ui.vm.AsignacionesViewModel;
 import ui.vm.DashboardViewModel;
 
 @SuppressWarnings("serial")
@@ -33,6 +30,8 @@ public class DashboardWindow  extends SimpleWindow<DashboardViewModel> {
 	
 	protected void goToAsignaciones() {
 		System.out.println("Quiero ir a asignaciones");
+		SimpleWindow<AsignacionesViewModel> asignaciones = new AsignacionesWindow(this, this.getModelObject().getLegajo());
+		asignaciones.open();
 	}
 	
 	protected void goToEditarPerfil() {

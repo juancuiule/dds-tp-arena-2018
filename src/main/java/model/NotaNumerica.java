@@ -1,7 +1,7 @@
 package model;
 
 public class NotaNumerica implements Nota {
-	Double valor;
+	private Double valor;
 	public NotaNumerica(Double valor) {
 		this.valor = valor;
 	}

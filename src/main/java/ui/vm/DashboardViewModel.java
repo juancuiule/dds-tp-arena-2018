@@ -8,7 +8,7 @@ import model.repositories.Repositorios;
 
 @Observable
 public class DashboardViewModel {
-	Estudiante estudiante;
+	private	Estudiante estudiante;
 	public DashboardViewModel(String legajoEstudiante) {
 		try {
 			this.estudiante = Repositorios.estudiantes().findByLegajo(legajoEstudiante);
@@ -19,5 +19,8 @@ public class DashboardViewModel {
 	}
 	public Estudiante estudiante() {
 		return estudiante;
+	}
+	public String getLegajo() {
+		return this.estudiante.getLegajo();
 	}
 }

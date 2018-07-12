@@ -7,9 +7,9 @@ import org.uqbar.commons.utils.Observable;
 
 @Observable
 public class Asignacion {
-	Estudiante estudiante;
-	Tarea tarea;
-	List<Nota> notas;
+	private Estudiante estudiante;
+	private Tarea tarea;
+	private List<Nota> notas;
 
 	public Asignacion(Estudiante estudiante, Tarea tarea, List<Nota> notas) {
 		this.estudiante = estudiante;
@@ -25,7 +25,7 @@ public class Asignacion {
 		return this.estudiante.suLegajoEs(legajoEstudiante);
 	}
 
-	public String ultimaNota() {
+	public String getNota() {
 		// Esto podría filtrarse por ultima fecha si es necesario...
 		return this.notas.get(this.notas.size() - 1).valorTexto();
 	}
@@ -34,11 +34,11 @@ public class Asignacion {
 		return this.notas.stream().anyMatch(nota -> nota.aprobada());
 	}
 
-	public String aprobadaString() {
+	public String getAprobada() {
 		return this.aprobada() ? "Si" : "No";
 	}
 
-	public String titulo() {
+	public String getTitulo() {
 		return this.tarea.titulo();
 	}
 }

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NotaConceptual implements Nota {
-	String concepto;
+	private String concepto;
 	public NotaConceptual(String concepto) {
 		this.concepto = concepto;
 	}

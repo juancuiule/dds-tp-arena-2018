@@ -1,7 +1,7 @@
 package model;
 
 public class Tarea {
-	String titulo;
+	private String titulo;
 
 	public Tarea(String titulo) {
 		this.titulo = titulo;
