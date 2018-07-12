@@ -2,7 +2,7 @@ package model.repositories;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 import model.Asignacion;
 
@@ -18,7 +18,7 @@ public class AsignacionesRepository {
 		return asignaciones;
 	}
 
-	public Stream<Asignacion> asignacionesPara(String legajoEstudiante) {
-		return asignaciones.stream().filter((Asignacion asignacion) -> asignacion.esDe(legajoEstudiante));
+	public List<Asignacion> asignacionesPara(String legajoEstudiante) {
+		return asignaciones.stream().filter((Asignacion asignacion) -> asignacion.esDe(legajoEstudiante)).collect(Collectors.toList());
 	}
 }
