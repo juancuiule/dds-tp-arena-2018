@@ -4,14 +4,14 @@ import org.uqbar.commons.utils.Observable;
 
 import model.Student;
 import model.exceptions.StudentNotFoundException;
-import model.repositories.Repositorios;
+import model.repositories.Respositories;
 
 @Observable
 public class DashboardViewModel {
 	private	Student estudiante;
 	public DashboardViewModel(String legajoEstudiante) {
 		try {
-			this.estudiante = Repositorios.estudiantes().findByCode(legajoEstudiante);
+			this.estudiante = Respositories.estudiantes().findByCode(legajoEstudiante);
 		} catch (StudentNotFoundException e) {
 			System.out.println(e.toString());
 		}

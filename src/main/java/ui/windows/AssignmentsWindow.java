@@ -7,14 +7,14 @@ import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
 import model.Assignment;
-import ui.vm.AsignacionesViewModel;
+import ui.vm.AssignmentsViewModel;
 
 
 @SuppressWarnings("serial")
-public class AsignacionesWindow extends SimpleWindow<AsignacionesViewModel>{
+public class AssignmentsWindow extends SimpleWindow<AssignmentsViewModel>{
 
-	public AsignacionesWindow(WindowOwner parent, String legajoEstudiante) {
-		super(parent, new AsignacionesViewModel(legajoEstudiante));
+	public AssignmentsWindow(WindowOwner parent, String legajoEstudiante) {
+		super(parent, new AssignmentsViewModel(legajoEstudiante));
 	}
 
 	@Override

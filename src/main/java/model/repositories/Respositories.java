@@ -1,12 +1,12 @@
 package model.repositories;
 
-public class Repositorios {
+public class Respositories {
 	public static StudentsRepository estudiantes = new StudentsRepository();
-	public static AsignacionesRepository asignaciones = new AsignacionesRepository();
+	public static AssignmentsRepository asignaciones = new AssignmentsRepository();
 	public static StudentsRepository estudiantes() {
 		return estudiantes;
 	}
-	public static AsignacionesRepository asignaciones() {
+	public static AssignmentsRepository asignaciones() {
 		return asignaciones;
 	}
 }

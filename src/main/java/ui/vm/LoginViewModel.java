@@ -5,17 +5,17 @@ import org.uqbar.commons.utils.Observable;
 
 import model.Auth;
 import model.Student;
-import model.repositories.Repositorios;
+import model.repositories.Respositories;
 
 @Observable
-public class InicioDeSesionViewModel {
+public class LoginViewModel {
 
 	private List<Student> estudiantes;
 	private String code = "1589386";
 	private String password = "1234abcd";
 
-	public InicioDeSesionViewModel() {
-		this.estudiantes = Repositorios.estudiantes.all();
+	public LoginViewModel() {
+		this.estudiantes = Respositories.estudiantes.all();
 	}
 
 	public String getCode() {

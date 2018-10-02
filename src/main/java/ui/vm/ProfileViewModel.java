@@ -4,10 +4,10 @@ import org.uqbar.commons.utils.Observable;
 
 import model.Student;
 import model.exceptions.StudentNotFoundException;
-import model.repositories.Repositorios;
+import model.repositories.Respositories;
 
 @Observable
-public class PerfilViewModel {
+public class ProfileViewModel {
 	private Student student;
 
 	private String firstNameInput;
@@ -17,9 +17,9 @@ public class PerfilViewModel {
 	private String passwordInput;
 	private String passwordConfirmationInput;
 
-	public PerfilViewModel(String code) {
+	public ProfileViewModel(String code) {
 		try {
-			this.student = Repositorios.estudiantes().findByCode(code);
+			this.student = Respositories.estudiantes().findByCode(code);
 			this.firstNameInput = this.student.getFirstName();
 			this.lastNameInput = this.student.getLastName();
 			this.codeInput = this.student.getCode();

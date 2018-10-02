@@ -9,13 +9,13 @@ import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
-import ui.vm.PerfilViewModel;
+import ui.vm.ProfileViewModel;
 
 @SuppressWarnings("serial")
-public class PerfilWindow  extends SimpleWindow<PerfilViewModel> {
+public class ProfileWindow  extends SimpleWindow<ProfileViewModel> {
 
-	public PerfilWindow(WindowOwner parent, String legajoEstudiante) {
-		super(parent, new PerfilViewModel(legajoEstudiante));
+	public ProfileWindow(WindowOwner parent, String legajoEstudiante) {
+		super(parent, new ProfileViewModel(legajoEstudiante));
 	}
 
 	@Override

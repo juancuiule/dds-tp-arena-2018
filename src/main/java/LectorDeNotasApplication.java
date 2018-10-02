@@ -1,7 +1,7 @@
 import org.uqbar.arena.Application;
 import org.uqbar.arena.windows.Window;
 
-import ui.windows.InicioDeSesionWindow;
+import ui.windows.LoginWindow;
 import model.Fixture;
 
 
@@ -14,6 +14,6 @@ public class LectorDeNotasApplication extends Application{
 	
 	@Override
 	protected Window<?> createMainWindow() {
-		return new InicioDeSesionWindow(this);
+		return new LoginWindow(this);
 	}
 }

@@ -10,13 +10,13 @@ import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
 import ui.vm.DashboardViewModel;
-import ui.vm.InicioDeSesionViewModel;
+import ui.vm.LoginViewModel;
 
 @SuppressWarnings("serial")
-public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> {
+public class LoginWindow extends SimpleWindow<LoginViewModel> {
 
-	public InicioDeSesionWindow(WindowOwner parent) {
-		super(parent, new InicioDeSesionViewModel());
+	public LoginWindow(WindowOwner parent) {
+		super(parent, new LoginViewModel());
 	}
 
 	@Override

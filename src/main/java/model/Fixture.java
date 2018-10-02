@@ -1,12 +1,12 @@
 package model;
 
 import model.repositories.StudentsRepository;
-import model.repositories.Repositorios;
+import model.repositories.Respositories;
 
 public class Fixture {
 	public static void initialize() {
 		// Agregar algunos estudiantes ejemplo
-		StudentsRepository repoEstudiantes = Repositorios.estudiantes();
+		StudentsRepository repoEstudiantes = Respositories.estudiantes();
 //		AsignacionesRepository repoAsignaciones = Repositorios.asignaciones();
 //
 //		Tarea parcialDDS = new Tarea("1° Parcial - Diseño");

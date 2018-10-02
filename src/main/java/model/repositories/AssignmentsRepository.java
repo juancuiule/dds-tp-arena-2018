@@ -5,7 +5,7 @@ import java.util.List;
 
 import model.Assignment;
 
-public class AsignacionesRepository {
+public class AssignmentsRepository {
 
 	private List<Assignment> assignments = new LinkedList<>();
 

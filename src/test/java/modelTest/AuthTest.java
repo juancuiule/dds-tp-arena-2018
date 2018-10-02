@@ -8,7 +8,7 @@ import org.junit.Test;
 import model.Auth;
 import model.Student;
 import model.repositories.StudentsRepository;
-import model.repositories.Repositorios;
+import model.repositories.Respositories;
 
 
 public class AuthTest {
@@ -16,7 +16,7 @@ public class AuthTest {
 
 	@Before
 	public void fixture() {
-		repoEstudiantes = Repositorios.estudiantes();
+		repoEstudiantes = Respositories.estudiantes();
 		Student juan = new Student("1589386", "Juan Ignacio", "Cuiule", "1234abcd", "juancuiule");
 		repoEstudiantes.agregar(juan);
 	}

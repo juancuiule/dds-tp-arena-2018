@@ -7,17 +7,17 @@ import org.uqbar.commons.utils.Observable;
 import model.Assignment;
 import model.Student;
 import model.exceptions.StudentNotFoundException;
-import model.repositories.Repositorios;
+import model.repositories.Respositories;
 
 @Observable
-public class AsignacionesViewModel {
+public class AssignmentsViewModel {
 	private String legajoEstudiante;
 	
-	public AsignacionesViewModel(String legajoEstudiante) {
+	public AssignmentsViewModel(String legajoEstudiante) {
 		this.legajoEstudiante = legajoEstudiante;
 	}
 	
 	public List<Assignment> getAsignacionesDelEstudiante() {
-		return Repositorios.asignaciones.asignacionesPara(legajoEstudiante);
+		return Respositories.asignaciones.asignacionesPara(legajoEstudiante);
 	}
 }
