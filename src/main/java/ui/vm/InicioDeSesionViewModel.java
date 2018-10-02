@@ -4,15 +4,15 @@ import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
 import model.Auth;
-import model.Estudiante;
+import model.Student;
 import model.repositories.Repositorios;
 
 @Observable
 public class InicioDeSesionViewModel {
 
-	private List<Estudiante> estudiantes;
-	private String code;
-	private String password;
+	private List<Student> estudiantes;
+	private String code = "1589386";
+	private String password = "1234abcd";
 
 	public InicioDeSesionViewModel() {
 		this.estudiantes = Repositorios.estudiantes.all();

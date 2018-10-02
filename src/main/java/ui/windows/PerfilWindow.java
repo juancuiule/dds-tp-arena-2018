@@ -22,7 +22,7 @@ public class PerfilWindow  extends SimpleWindow<PerfilViewModel> {
 	protected void addActions(Panel actionsPanel) {
 		new Button(actionsPanel)
 			.setCaption("Guardar")
-			.onClick(this::guardar);
+			.onClick(this::save);
 	}
 
 	@Override
@@ -35,29 +35,35 @@ public class PerfilWindow  extends SimpleWindow<PerfilViewModel> {
 		new Label(form).setText("Nombre");
 		new TextBox(form)
 			.setWidth(300)
-			.bindValueToProperty("nombreInput");
+			.bindValueToProperty("firstNameInput");
+		
+		new Label(form).setText("Apellido");
+		new TextBox(form)
+			.setWidth(300)
+			.bindValueToProperty("lastNameInput");
 		
 		new Label(form).setText("Legajo");
 		new TextBox(form)
 			.setWidth(300)
-			.bindValueToProperty("legajoInput");
+			.bindValueToProperty("codeInput");
 		
 		new Label(form).setText("Usuario Github");
 		new TextBox(form)
 			.setWidth(300)
-			.bindValueToProperty("usuarioGithubInput");
+			.bindValueToProperty("githubUserInput");
 		
-		new Label(form).setText("ContraseÃ±a");
+		new Label(form).setText("Contraseña");
 		new PasswordField(form)
 			.setWidth(300)
 			.bindValueToProperty("passwordInput");
-		new Label(form).setText("Confirmar ContraseÃ±a");
+		
+		new Label(form).setText("Confirmar Contraseña");
 		new PasswordField(form)
 			.setWidth(300)
 			.bindValueToProperty("passwordConfirmationInput");
 	}
 	
-	protected void guardar() {
-		this.getModelObject().guardar();
+	protected void save() {
+		this.getModelObject().save();
 	}
 }

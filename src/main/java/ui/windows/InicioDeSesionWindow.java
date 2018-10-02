@@ -28,7 +28,7 @@ public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> 
 
 	@Override
 	protected void createFormPanel(Panel formPanel) {
-		this.setTitle("Lector de Notas - Inicio de SesiÃ³n");
+		this.setTitle("Lector de Notas - Inicio de Sesión");
 		
 		formPanel.setLayout(new VerticalLayout());
 		
@@ -40,7 +40,7 @@ public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> 
 			.bindValueToProperty("code");
 		
 		new Label(formPanel)
-			.setText("Ingrese su contraseÃ±a");
+			.setText("Ingrese su contraseña");
 		
 		new PasswordField(formPanel)
 			.setWidth(300)
@@ -54,7 +54,7 @@ public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> 
 			SimpleWindow<DashboardViewModel> dashboard = new DashboardWindow(this, this.getModelObject().getCode());
 			dashboard.open();
 		} else {
-			System.out.println("Login incorrecto! CombinaciÃ³n legajo/contraseÃ±a erronea o estudiante inexistente");
+			System.out.println("Login incorrecto! Combinación legajo/contraseña erronea o estudiante inexistente");
 		}
 	}
 }

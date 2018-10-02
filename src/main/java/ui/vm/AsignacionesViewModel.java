@@ -5,8 +5,8 @@ import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
 import model.Assignment;
-import model.Estudiante;
-import model.exceptions.NoHayEstudianteException;
+import model.Student;
+import model.exceptions.StudentNotFoundException;
 import model.repositories.Repositorios;
 
 @Observable

@@ -1,6 +1,6 @@
 package model;
 
-public class Estudiante {
+public class Student {
 
 	private String firstName;
 	private String lastName;
@@ -8,7 +8,7 @@ public class Estudiante {
 	private String githubUser;
 	private String password;
 
-	public Estudiante(String firstName, String lastName, String code, String githubUser, String password) {
+	public Student(String firstName, String lastName, String code, String githubUser, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.code = code;

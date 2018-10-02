@@ -2,73 +2,73 @@ package ui.vm;
 
 import org.uqbar.commons.utils.Observable;
 
-import model.Estudiante;
-import model.exceptions.NoHayEstudianteException;
+import model.Student;
+import model.exceptions.StudentNotFoundException;
 import model.repositories.Repositorios;
 
 @Observable
 public class PerfilViewModel {
-	private Estudiante estudiante;
+	private Student student;
 
-	private String nombreInput;
-	private String apellidoInput;
-	private String legajoInput;
-	private String usuarioGithubInput;
+	private String firstNameInput;
+	private String lastNameInput;
+	private String codeInput;
+	private String githubUserInput;
 	private String passwordInput;
 	private String passwordConfirmationInput;
 
-	public PerfilViewModel(String legajoEstudiante) {
+	public PerfilViewModel(String code) {
 		try {
-			this.estudiante = Repositorios.estudiantes().findByLegajo(legajoEstudiante);
-			this.nombreInput = this.estudiante.getFirstName();
-			this.apellidoInput = this.estudiante.getLastName();
-			this.legajoInput = this.estudiante.getCode();
-			this.usuarioGithubInput = this.estudiante.getGithubUser();
-			this.passwordInput = this.estudiante.getPassword();
-			this.passwordConfirmationInput = this.estudiante.getPassword();
-		} catch (NoHayEstudianteException e) {
+			this.student = Repositorios.estudiantes().findByCode(code);
+			this.firstNameInput = this.student.getFirstName();
+			this.lastNameInput = this.student.getLastName();
+			this.codeInput = this.student.getCode();
+			this.githubUserInput = this.student.getGithubUser();
+			this.passwordInput = this.student.getPassword();
+			this.passwordConfirmationInput = this.student.getPassword();
+		} catch (StudentNotFoundException e) {
 			System.out.println(e.toString());
 		}
 	}
 
-	public Estudiante getEstudiante() {
-		return estudiante;
+	public Student getStudent() {
+		return student;
 	}
 
-	public void setEstudiante(Estudiante estudiante) {
-		this.estudiante = estudiante;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
-	public String getNombreInput() {
-		return nombreInput;
+	public String getFirstNameInput() {
+		return firstNameInput;
 	}
 
-	public void setNombreInput(String nombreInput) {
-		this.nombreInput = nombreInput;
-	}
-	
-	public String getApellidoInput() {
-		return apellidoInput;
+	public void setFirstNameInput(String firstNameInput) {
+		this.firstNameInput = firstNameInput;
 	}
 
-	public void setApellidoInput(String apellidoInput) {
-		this.apellidoInput = apellidoInput;
+	public String getLastNameInput() {
+		return lastNameInput;
 	}
 
-	public String getLegajoInput() {
-		return legajoInput;
+	public void setLastNameInput(String lastNameInput) {
+		this.lastNameInput = lastNameInput;
 	}
 
-	public void setLegajoInput(String legajoInput) {
-		this.legajoInput = legajoInput;
+	public String getCodeInput() {
+		return codeInput;
 	}
 
-	public String getUsuarioGithubInput() {
-		return usuarioGithubInput;
+	public void setCodeInput(String codeInput) {
+		this.codeInput = codeInput;
 	}
 
-	public void setUsuarioGithubInput(String usuarioGithubInput) {
-		this.usuarioGithubInput = usuarioGithubInput;
+	public String getGithubUserInput() {
+		return githubUserInput;
+	}
+
+	public void setGithubUserInput(String githubUserInput) {
+		this.githubUserInput = githubUserInput;
 	}
 
 	public String getPasswordInput() {
@@ -87,15 +87,15 @@ public class PerfilViewModel {
 		this.passwordConfirmationInput = passwordConfirmationInput;
 	}
 
-	public void guardar() {
+	public void save() {
 		if (passwordInput.equals(passwordConfirmationInput)) {
-			this.estudiante.setFirstName(nombreInput);
-			this.estudiante.setLastName(apellidoInput);
-			this.estudiante.setCode(legajoInput);
-			this.estudiante.setGithubUser(usuarioGithubInput);
-			this.estudiante.setPassword(passwordInput);
+			this.student.setFirstName(firstNameInput);
+			this.student.setLastName(lastNameInput);
+			this.student.setCode(codeInput);
+			this.student.setGithubUser(githubUserInput);
+			this.student.setPassword(passwordInput);
 		} else {
-			System.out.println("No coinciden las contraseÃ±as");
+			System.out.println("No coinciden las contraseñas");
 		}
 
 	}

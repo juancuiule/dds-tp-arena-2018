@@ -1,8 +1,5 @@
 package ui.windows;
 
-import org.uqbar.arena.layout.VerticalLayout;
-import org.uqbar.arena.widgets.Button;
-import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.tables.Table;
@@ -27,23 +24,28 @@ public class AsignacionesWindow extends SimpleWindow<AsignacionesViewModel>{
 	protected void createFormPanel(Panel formPanel) {
 		this.setTitle("Asignaciones");
 		
-		Table tableAsignaciones = new Table<Assignment>(formPanel, Assignment.class);
-		Column<Assignment> columnaTitulo = new Column<Assignment>(tableAsignaciones);
-		columnaTitulo.setTitle("Titulo");
+		Table<Assignment> assignmentsTable = new Table<Assignment>(formPanel, Assignment.class);
 		
-		Column<Assignment> columnaNota = new Column<Assignment>(tableAsignaciones);
-		columnaNota.setTitle("Nota");
+		Column<Assignment> titleColumn = new Column<Assignment>(assignmentsTable);
+		titleColumn.setTitle("Título");
 		
-		Column<Assignment> columnaAprobada = new Column<Assignment>(tableAsignaciones);
-		columnaAprobada.setTitle("Aprobada");
+		Column<Assignment> descriptionColumn = new Column<Assignment>(assignmentsTable);
+		descriptionColumn.setTitle("Descripción");
+		
+		Column<Assignment> gradeColumn = new Column<Assignment>(assignmentsTable);
+		gradeColumn.setTitle("Nota");
+		
+		Column<Assignment> approvedColumn = new Column<Assignment>(assignmentsTable);
+		approvedColumn.setTitle("Aprobada");
 		
 		
-		columnaTitulo.bindContentsToProperty("title");
-		columnaNota.bindContentsToProperty("grade");
-		columnaAprobada.bindContentsToProperty("approved");
-		tableAsignaciones.bindItemsToProperty("asignacionesDelEstudiante");
+		titleColumn.bindContentsToProperty("title");
+		descriptionColumn.bindContentsToProperty("description");
+		gradeColumn.bindContentsToProperty("grade");
+		approvedColumn.bindContentsToProperty("approved");
+		assignmentsTable.bindItemsToProperty("asignacionesDelEstudiante");
 
-		tableAsignaciones.setHeight(300);
-		tableAsignaciones.setWidth(600);
+		assignmentsTable.setHeight(300);
+		assignmentsTable.setWidth(600);
 	}
 }

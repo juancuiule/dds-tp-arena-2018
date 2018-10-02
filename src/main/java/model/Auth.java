@@ -7,9 +7,9 @@ import model.repositories.Repositorios;
 
 public class Auth {
 	static public Boolean loginEstudiante(String code, String password) {
-		List<Estudiante> estudiantes = Repositorios.estudiantes.all();
+		List<Student> estudiantes = Repositorios.estudiantes.all();
 
-		Optional<Estudiante> posibleEstudiante = estudiantes.stream().filter(
+		Optional<Student> posibleEstudiante = estudiantes.stream().filter(
 				estudiante -> estudiante.getCode().equals(code) && estudiante.getPassword().equalsIgnoreCase(password))
 				.findFirst();
 
