@@ -1,4 +1,4 @@
- package model;
+package model;
 
 public class Estudiante {
 
@@ -7,7 +7,7 @@ public class Estudiante {
 	private String code;
 	private String github_user;
 	private String password;
-	
+
 	public String getFirst_name() {
 		return first_name;
 	}
@@ -39,10 +39,15 @@ public class Estudiante {
 	public void setGithub_user(String github_user) {
 		this.github_user = github_user;
 	}
+
+	public String getPassword() {
+		return password;
+	}
 	
-	public String getPassword() { return password; }
-	
-	public Estudiante() {}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public Estudiante(String code, String first_name, String last_name, String password, String github_user) {
 		this.code = code;
 		this.first_name = first_name;

@@ -17,7 +17,7 @@ public class AuthTest {
 	@Before
 	public void fixture() {
 		repoEstudiantes = Repositorios.estudiantes();
-		Estudiante juan = new Estudiante("juan", "1589386", "1234abcd", "juancuiule");
+		Estudiante juan = new Estudiante("1589386", "Juan Ignacio", "Cuiule", "1234abcd", "juancuiule");
 		repoEstudiantes.agregar(juan);
 	}
 	

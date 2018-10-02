@@ -11,6 +11,7 @@ public class PerfilViewModel {
 	private Estudiante estudiante;
 
 	private String nombreInput;
+	private String apellidoInput;
 	private String legajoInput;
 	private String usuarioGithubInput;
 	private String passwordInput;
@@ -19,9 +20,10 @@ public class PerfilViewModel {
 	public PerfilViewModel(String legajoEstudiante) {
 		try {
 			this.estudiante = Repositorios.estudiantes().findByLegajo(legajoEstudiante);
-			this.nombreInput = this.estudiante.getNombre();
+			this.nombreInput = this.estudiante.getFirst_name();
+			this.apellidoInput = this.estudiante.getLast_name();
 			this.legajoInput = this.estudiante.getCode();
-			this.usuarioGithubInput = this.estudiante.getUsuarioGithub();
+			this.usuarioGithubInput = this.estudiante.getGithub_user();
 			this.passwordInput = this.estudiante.getPassword();
 			this.passwordConfirmationInput = this.estudiante.getPassword();
 		} catch (NoHayEstudianteException e) {
@@ -43,6 +45,14 @@ public class PerfilViewModel {
 
 	public void setNombreInput(String nombreInput) {
 		this.nombreInput = nombreInput;
+	}
+	
+	public String getApellidoInput() {
+		return apellidoInput;
+	}
+
+	public void setApellidoInput(String apellidoInput) {
+		this.apellidoInput = apellidoInput;
 	}
 
 	public String getLegajoInput() {
@@ -79,9 +89,10 @@ public class PerfilViewModel {
 
 	public void guardar() {
 		if (passwordInput.equals(passwordConfirmationInput)) {
-			this.estudiante.setNombre(nombreInput);
+			this.estudiante.setFirst_name(nombreInput);
+			this.estudiante.setLast_name(apellidoInput);
 			this.estudiante.setCode(legajoInput);
-			this.estudiante.setUsuarioGithub(usuarioGithubInput);
+			this.estudiante.setGithub_user(usuarioGithubInput);
 			this.estudiante.setPassword(passwordInput);
 		} else {
 			System.out.println("No coinciden las contraseñas");
