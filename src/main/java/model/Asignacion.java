@@ -1,6 +1,5 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.uqbar.commons.utils.Observable;
@@ -22,7 +21,7 @@ public class Asignacion {
 	}
 
 	public boolean esDe(String legajoEstudiante) {
-		return this.estudiante.suLegajoEs(legajoEstudiante);
+		return this.estudiante.getCode().equals(legajoEstudiante);
 	}
 
 	public String getNota() {

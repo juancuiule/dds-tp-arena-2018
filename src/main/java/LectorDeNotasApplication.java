@@ -1,9 +1,9 @@
 import org.uqbar.arena.Application;
 import org.uqbar.arena.windows.Window;
 
-import model.Fixture;
-import ui.vm.InicioDeSesionViewModel;
 import ui.windows.InicioDeSesionWindow;
+import model.Fixture;
+
 
 public class LectorDeNotasApplication extends Application{
 

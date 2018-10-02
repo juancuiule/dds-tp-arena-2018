@@ -21,7 +21,7 @@ public class EstudiantesRepository {
 
 	public Estudiante findByLegajo(String legajo) throws NoHayEstudianteException {
 		Optional<Estudiante> optionalEstudiante = this.estudiantes.stream()
-				.filter(estudiante -> estudiante.getLegajo().equals(legajo)).findFirst();
+				.filter(estudiante -> estudiante.getCode().equals(legajo)).findFirst();
 		if (optionalEstudiante.isPresent()) {
 			return optionalEstudiante.get();
 		} else {

@@ -2,51 +2,52 @@
 
 public class Estudiante {
 
-	private String nombre;
-	private String legajo;
+	private String first_name;
+	private String last_name;
+	private String code;
+	private String github_user;
 	private String password;
-	private String usuarioGithub;
-
-	public Estudiante(String nombre, String legajo, String password, String usuarioGithub) {
-		this.nombre = nombre;
-		this.legajo = legajo;
-		this.password = password;
-		this.usuarioGithub = usuarioGithub;
+	
+	public String getFirst_name() {
+		return first_name;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public String getLast_name() {
+		return last_name;
 	}
 
-	public String getLegajo() {
-		return legajo;
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
 	}
 
-	public boolean suLegajoEs(String legajoComparar) {
-		return this.legajo.equals(legajoComparar);
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getGithub_user() {
+		return github_user;
+	}
+
+	public void setGithub_user(String github_user) {
+		this.github_user = github_user;
 	}
 	
-	public void setLegajo(String legajo) {
-		this.legajo = legajo;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
+	public String getPassword() { return password; }
+	
+	public Estudiante() {}
+	public Estudiante(String code, String first_name, String last_name, String password, String github_user) {
+		this.code = code;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.github_user = github_user;
 		this.password = password;
-	}
-
-	public String getUsuarioGithub() {
-		return usuarioGithub;
-	}
-
-	public void setUsuarioGithub(String usuarioGithub) {
-		this.usuarioGithub = usuarioGithub;
 	}
 }

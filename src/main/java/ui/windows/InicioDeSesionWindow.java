@@ -37,7 +37,7 @@ public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> 
 		
 		new TextBox(formPanel)
 			.setWidth(300)
-			.bindValueToProperty("legajo");
+			.bindValueToProperty("code");
 		
 		new Label(formPanel)
 			.setText("Ingrese su contraseña");
@@ -51,7 +51,7 @@ public class InicioDeSesionWindow extends SimpleWindow<InicioDeSesionViewModel> 
 		Boolean loginCorrecto = this.getModelObject().login();
 		if(loginCorrecto) {
 			System.out.println("Login correcto! Bienvenido al sistema de lectura de notas");
-			SimpleWindow<DashboardViewModel> dashboard = new DashboardWindow(this, this.getModelObject().getLegajo());
+			SimpleWindow<DashboardViewModel> dashboard = new DashboardWindow(this, this.getModelObject().getCode());
 			dashboard.open();
 		} else {
 			System.out.println("Login incorrecto! Combinación legajo/contraseña erronea o estudiante inexistente");

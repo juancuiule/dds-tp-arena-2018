@@ -21,6 +21,6 @@ public class DashboardViewModel {
 		return estudiante;
 	}
 	public String getLegajo() {
-		return this.estudiante.getLegajo();
+		return this.estudiante.getCode();
 	}
 }

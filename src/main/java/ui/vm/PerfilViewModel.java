@@ -20,7 +20,7 @@ public class PerfilViewModel {
 		try {
 			this.estudiante = Repositorios.estudiantes().findByLegajo(legajoEstudiante);
 			this.nombreInput = this.estudiante.getNombre();
-			this.legajoInput = this.estudiante.getLegajo();
+			this.legajoInput = this.estudiante.getCode();
 			this.usuarioGithubInput = this.estudiante.getUsuarioGithub();
 			this.passwordInput = this.estudiante.getPassword();
 			this.passwordConfirmationInput = this.estudiante.getPassword();
@@ -80,7 +80,7 @@ public class PerfilViewModel {
 	public void guardar() {
 		if (passwordInput.equals(passwordConfirmationInput)) {
 			this.estudiante.setNombre(nombreInput);
-			this.estudiante.setLegajo(legajoInput);
+			this.estudiante.setCode(legajoInput);
 			this.estudiante.setUsuarioGithub(usuarioGithubInput);
 			this.estudiante.setPassword(passwordInput);
 		} else {

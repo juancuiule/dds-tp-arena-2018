@@ -11,19 +11,19 @@ import model.repositories.Repositorios;
 public class InicioDeSesionViewModel {
 
 	private List<Estudiante> estudiantes;
-	private String legajo;
+	private String code;
 	private String password;
 
 	public InicioDeSesionViewModel() {
 		this.estudiantes = Repositorios.estudiantes.all();
 	}
 
-	public String getLegajo() {
-		return legajo;
+	public String getCode() {
+		return code;
 	}
 
-	public void setLegajo(String legajo) {
-		this.legajo = legajo;
+	public void setCode(String legajo) {
+		this.code = legajo;
 	}
 
 	public String getPassword() {
@@ -35,7 +35,7 @@ public class InicioDeSesionViewModel {
 	}
 
 	public boolean login() {
-		Boolean loginCorrecto = Auth.loginEstudiante(this.getLegajo(), this.getPassword());
+		Boolean loginCorrecto = Auth.loginEstudiante(this.getCode(), this.getPassword());
 		return loginCorrecto;
 	}
 }
