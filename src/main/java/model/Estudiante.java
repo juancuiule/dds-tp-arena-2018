@@ -2,26 +2,34 @@ package model;
 
 public class Estudiante {
 
-	private String first_name;
-	private String last_name;
+	private String firstName;
+	private String lastName;
 	private String code;
-	private String github_user;
+	private String githubUser;
 	private String password;
 
-	public String getFirst_name() {
-		return first_name;
+	public Estudiante(String firstName, String lastName, String code, String githubUser, String password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.code = code;
+		this.githubUser = githubUser;
+		this.password = password;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getCode() {
@@ -32,27 +40,20 @@ public class Estudiante {
 		this.code = code;
 	}
 
-	public String getGithub_user() {
-		return github_user;
+	public String getGithubUser() {
+		return githubUser;
 	}
 
-	public void setGithub_user(String github_user) {
-		this.github_user = github_user;
+	public void setGithubUser(String githubUser) {
+		this.githubUser = githubUser;
 	}
 
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public Estudiante(String code, String first_name, String last_name, String password, String github_user) {
-		this.code = code;
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.github_user = github_user;
-		this.password = password;
-	}
+	
 }

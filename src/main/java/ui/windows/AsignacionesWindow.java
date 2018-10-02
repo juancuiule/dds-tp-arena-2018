@@ -9,7 +9,7 @@ import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
-import model.Asignacion;
+import model.Assignment;
 import ui.vm.AsignacionesViewModel;
 
 
@@ -27,20 +27,20 @@ public class AsignacionesWindow extends SimpleWindow<AsignacionesViewModel>{
 	protected void createFormPanel(Panel formPanel) {
 		this.setTitle("Asignaciones");
 		
-		Table tableAsignaciones = new Table<Asignacion>(formPanel, Asignacion.class);
-		Column<Asignacion> columnaTitulo = new Column<Asignacion>(tableAsignaciones);
+		Table tableAsignaciones = new Table<Assignment>(formPanel, Assignment.class);
+		Column<Assignment> columnaTitulo = new Column<Assignment>(tableAsignaciones);
 		columnaTitulo.setTitle("Titulo");
 		
-		Column<Asignacion> columnaNota = new Column<Asignacion>(tableAsignaciones);
+		Column<Assignment> columnaNota = new Column<Assignment>(tableAsignaciones);
 		columnaNota.setTitle("Nota");
 		
-		Column<Asignacion> columnaAprobada = new Column<Asignacion>(tableAsignaciones);
+		Column<Assignment> columnaAprobada = new Column<Assignment>(tableAsignaciones);
 		columnaAprobada.setTitle("Aprobada");
 		
 		
-		columnaTitulo.bindContentsToProperty("titulo");
-		columnaNota.bindContentsToProperty("nota");
-		columnaAprobada.bindContentsToProperty("aprobada");
+		columnaTitulo.bindContentsToProperty("title");
+		columnaNota.bindContentsToProperty("grade");
+		columnaAprobada.bindContentsToProperty("approved");
 		tableAsignaciones.bindItemsToProperty("asignacionesDelEstudiante");
 
 		tableAsignaciones.setHeight(300);

@@ -20,10 +20,10 @@ public class PerfilViewModel {
 	public PerfilViewModel(String legajoEstudiante) {
 		try {
 			this.estudiante = Repositorios.estudiantes().findByLegajo(legajoEstudiante);
-			this.nombreInput = this.estudiante.getFirst_name();
-			this.apellidoInput = this.estudiante.getLast_name();
+			this.nombreInput = this.estudiante.getFirstName();
+			this.apellidoInput = this.estudiante.getLastName();
 			this.legajoInput = this.estudiante.getCode();
-			this.usuarioGithubInput = this.estudiante.getGithub_user();
+			this.usuarioGithubInput = this.estudiante.getGithubUser();
 			this.passwordInput = this.estudiante.getPassword();
 			this.passwordConfirmationInput = this.estudiante.getPassword();
 		} catch (NoHayEstudianteException e) {
@@ -89,10 +89,10 @@ public class PerfilViewModel {
 
 	public void guardar() {
 		if (passwordInput.equals(passwordConfirmationInput)) {
-			this.estudiante.setFirst_name(nombreInput);
-			this.estudiante.setLast_name(apellidoInput);
+			this.estudiante.setFirstName(nombreInput);
+			this.estudiante.setLastName(apellidoInput);
 			this.estudiante.setCode(legajoInput);
-			this.estudiante.setGithub_user(usuarioGithubInput);
+			this.estudiante.setGithubUser(usuarioGithubInput);
 			this.estudiante.setPassword(passwordInput);
 		} else {
 			System.out.println("No coinciden las contraseñas");

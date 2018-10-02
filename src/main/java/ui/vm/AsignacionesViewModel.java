@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.uqbar.commons.utils.Observable;
 
-import model.Asignacion;
+import model.Assignment;
 import model.Estudiante;
 import model.exceptions.NoHayEstudianteException;
 import model.repositories.Repositorios;
@@ -17,7 +17,7 @@ public class AsignacionesViewModel {
 		this.legajoEstudiante = legajoEstudiante;
 	}
 	
-	public List<Asignacion> getAsignacionesDelEstudiante() {
+	public List<Assignment> getAsignacionesDelEstudiante() {
 		return Repositorios.asignaciones.asignacionesPara(legajoEstudiante);
 	}
 }
