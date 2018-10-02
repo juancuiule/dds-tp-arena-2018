@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import model.Asignacion;
+import model.StudentController;
+import json.JsonParser;
 
 public class AsignacionesRepository {
 
@@ -19,6 +21,10 @@ public class AsignacionesRepository {
 	}
 
 	public List<Asignacion> asignacionesPara(String legajoEstudiante) {
+		String response = new StudentController().getAssignments().getEntity(String.class);
+		System.out.println(response);
+//		AsignacionList x = JsonParser.objetoDesdeString(response, AsignacionList.class);
+//  	System.out.println(x.getAssignments().get(0).getTitulo());
 		return asignaciones.stream().filter((Asignacion asignacion) -> asignacion.esDe(legajoEstudiante)).collect(Collectors.toList());
 	}
 }

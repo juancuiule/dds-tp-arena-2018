@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 public class StudentController {
     private Client client;
     private static final String API_NOTITAS = "http://notitas.herokuapp.com/";
+    private static final String API_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho";
 
     public StudentController() {
         this.client = Client.create();
@@ -17,10 +18,19 @@ public class StudentController {
 
     public ClientResponse getStudent(){
         WebResource recurso = this.client.resource(API_NOTITAS).path("student");
-        WebResource.Builder builder = recurso
-        		.header(HttpHeaders.AUTHORIZATION, "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho")
-        		.accept(MediaType.APPLICATION_JSON);
-        ClientResponse response = builder.get(ClientResponse.class);
+        ClientResponse response = recurso
+        		.header(HttpHeaders.AUTHORIZATION, "Bearer " + API_TOKEN)
+        		.accept(MediaType.APPLICATION_JSON)
+        		.get(ClientResponse.class);
+        return response;
+    }
+    
+    public ClientResponse getAssignments(){
+        WebResource recurso = this.client.resource(API_NOTITAS).path("student/assignments");
+        ClientResponse response = recurso
+        		.header(HttpHeaders.AUTHORIZATION, "Bearer " + API_TOKEN)
+        		.accept(MediaType.APPLICATION_JSON)
+        		.get(ClientResponse.class);
         return response;
     }
 }
