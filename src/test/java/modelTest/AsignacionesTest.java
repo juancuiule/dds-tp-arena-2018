@@ -9,11 +9,15 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.sun.jersey.api.client.ClientResponse;
+
+import json.JsonParser;
 import model.Asignacion;
 import model.Estudiante;
 import model.Nota;
 import model.NotaConceptual;
 import model.NotaNumerica;
+import model.StudentController;
 import model.Tarea;
 
 public class AsignacionesTest {
@@ -31,7 +35,7 @@ public class AsignacionesTest {
 		parcialDDS = new Tarea("1° Parcial - Diseño");
 		tpGDD = new Tarea("Trabaoj Practico - Gestión");
 		
-		juan = new Estudiante("juan", "1589386", "1234abcd", "juancuiule");
+		juan = new Estudiante("1589386", "Juan", "Cuiule", "juancuiule", "1234abcd");
 
 		notasParcial = new ArrayList<Nota>(Arrays.asList(new NotaNumerica(6.0)));
 		parcialJuan = new Asignacion(juan, parcialDDS, notasParcial);
@@ -54,5 +58,12 @@ public class AsignacionesTest {
 	public void elTpPasaAEstarAprobado() {
 		tpJuan.agregarNota(new NotaConceptual("B-"));
 		assertTrue(tpJuan.aprobada());
+	}
+	
+	@Test
+	public void requestStudent() {
+		ClientResponse response = new StudentController().getStudent();
+		Estudiante x = JsonParser.objetoDesdeString(response.getEntity(String.class), Estudiante.class);
+		assertEquals(response.getStatus(), 200);
 	}
 }
