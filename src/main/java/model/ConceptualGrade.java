@@ -16,6 +16,9 @@ public class ConceptualGrade implements Grade {
 	}
 	@Override
 	public String stringValue() {
-		return this.concept;
+		return concept;
+	}
+	public String getValue() {
+		return concept;
 	}
 }

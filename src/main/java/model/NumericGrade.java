@@ -11,6 +11,9 @@ public class NumericGrade implements Grade {
 	}
 	@Override
 	public String stringValue() {
-		return this.value.toString();
+		return value.toString();
+	}
+	public Double getValue() {
+		return value;
 	}
 }
