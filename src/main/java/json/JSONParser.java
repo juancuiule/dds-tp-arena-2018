@@ -75,4 +75,12 @@ public class JSONParser {
 			return new ConceptualGrade(concepto);
 		}
 	}
+	
+	public static String studentToJson(Student student) {
+    	return "{"
+		+ "\"code\": \"" + student.getCode() + "\","
+		+ "\"first_name\":\"" + student.getFirstName() + "\","
+		+ "\"last_name\":\"" + student.getLastName() + "\","
+		+ "\"github_user\":\"" + student.getGithubUser() + "\"}";
+	}
 }

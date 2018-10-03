@@ -91,6 +91,14 @@ public class ProfileViewModel {
 
 	public void save() {
 		if (passwordInput.equals(passwordConfirmationInput)) {
+			Student x = new Student(
+					firstNameInput,
+					lastNameInput,
+					codeInput,
+					githubUserInput,
+					passwordInput
+			);
+			new StudentController().updateStudent(x);
 			this.student.setFirstName(firstNameInput);
 			this.student.setLastName(lastNameInput);
 			this.student.setCode(codeInput);
