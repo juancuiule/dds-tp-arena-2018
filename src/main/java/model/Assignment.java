@@ -40,12 +40,10 @@ public class Assignment {
 	}
 
 	public String getGrade() {
-		String last;
 		try {
-			last = this.grades.get(this.grades.size() - 1).stringValue();
+			return this.grades.get(this.grades.size() - 1).stringValue();
 		} catch (Exception e) {
-			last = "Sin nota";
+			return "Sin nota";
 		}
-		return last;
 	}
 }

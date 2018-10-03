@@ -3,6 +3,7 @@ package ui.vm;
 import org.uqbar.commons.utils.Observable;
 
 import model.Student;
+import model.StudentController;
 import model.exceptions.StudentNotFoundException;
 import model.repositories.Respositories;
 
@@ -19,14 +20,15 @@ public class ProfileViewModel {
 
 	public ProfileViewModel(String code) {
 		try {
-			this.student = Respositories.estudiantes().findByCode(code);
+			// this.student = Respositories.estudiantes().findByCode(code);
+			this.student = new StudentController().getStudent();
 			this.firstNameInput = this.student.getFirstName();
 			this.lastNameInput = this.student.getLastName();
 			this.codeInput = this.student.getCode();
 			this.githubUserInput = this.student.getGithubUser();
 			this.passwordInput = this.student.getPassword();
 			this.passwordConfirmationInput = this.student.getPassword();
-		} catch (StudentNotFoundException e) {
+		} catch (Exception e/* StudentNotFoundException e */) {
 			System.out.println(e.toString());
 		}
 	}
