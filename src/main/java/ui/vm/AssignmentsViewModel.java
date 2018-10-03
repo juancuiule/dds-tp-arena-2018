@@ -5,9 +5,7 @@ import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
 import model.Assignment;
-import model.Student;
-import model.exceptions.StudentNotFoundException;
-import model.repositories.Respositories;
+import model.StudentController;
 
 @Observable
 public class AssignmentsViewModel {
@@ -18,6 +16,7 @@ public class AssignmentsViewModel {
 	}
 	
 	public List<Assignment> getAsignacionesDelEstudiante() {
-		return Respositories.asignaciones.asignacionesPara(legajoEstudiante);
+		return new StudentController().getAssignments();
+		// return Respositories.asignaciones.asignacionesPara(legajoEstudiante);
 	}
 }

@@ -4,6 +4,10 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
+import json.JSONParser;
+
+import java.util.List;
+
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
@@ -16,21 +20,23 @@ public class StudentController {
         this.client = Client.create();
     }
 
-    public ClientResponse getStudent(){
+    public Student getStudent(){
         WebResource recurso = this.client.resource(API_NOTITAS).path("student");
         ClientResponse response = recurso
         		.header(HttpHeaders.AUTHORIZATION, "Bearer " + API_TOKEN)
         		.accept(MediaType.APPLICATION_JSON)
         		.get(ClientResponse.class);
-        return response;
+        String string = response.getEntity(String.class);
+        return JSONParser.parseStudent(string);
     }
     
-    public ClientResponse getAssignments(){
+    public List<Assignment> getAssignments(){
         WebResource recurso = this.client.resource(API_NOTITAS).path("student/assignments");
         ClientResponse response = recurso
         		.header(HttpHeaders.AUTHORIZATION, "Bearer " + API_TOKEN)
         		.accept(MediaType.APPLICATION_JSON)
         		.get(ClientResponse.class);
-        return response;
+        String string = response.getEntity(String.class);
+        return JSONParser.parseAssignments(string);
     }
 }

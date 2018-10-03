@@ -1,8 +1,11 @@
 package model;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.uqbar.commons.utils.Observable;
+
+import com.ibm.icu.util.StringTrieBuilder.Option;
 
 @Observable
 public class Assignment {
@@ -31,12 +34,18 @@ public class Assignment {
 	public String getTitle() {
 		return title;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
-	
+
 	public String getGrade() {
-		return this.grades.get(this.grades.size() - 1).stringValue();
+		String last;
+		try {
+			last = this.grades.get(this.grades.size() - 1).stringValue();
+		} catch (Exception e) {
+			last = "Sin nota";
+		}
+		return last;
 	}
 }
