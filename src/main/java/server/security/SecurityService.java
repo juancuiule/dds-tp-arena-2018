@@ -20,7 +20,7 @@ public class SecurityService {
 			Algorithm algorithm = Algorithm.HMAC256(secret);
 			JWTVerifier verifier = JWT.require(algorithm).build();
 			DecodedJWT jwt = verifier.verify(token);
-			return jwt.getClaim("user").asLong();
+			return jwt.getClaim("id").asLong();
 		} catch (JWTVerificationException e) {
 			throw new InvalidTokenException(e);
 		}
