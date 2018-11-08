@@ -1,5 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Student {
 
 	private String firstName;
@@ -7,6 +11,7 @@ public class Student {
 	private String code;
 	private String githubUser;
 	private String password;
+	private List<Assignment> assignments = new ArrayList<Assignment>(Arrays.asList());
 
 	public Student(String firstName, String lastName, String code, String githubUser, String password) {
 		this.firstName = firstName;
@@ -55,5 +60,13 @@ public class Student {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+	public void addAssignment(Assignment anAssignment) {
+		this.assignments.add(anAssignment);
+	}
+
+	public List<Assignment> getAssignments() {
+		return this.assignments;
+	}
+
 }
