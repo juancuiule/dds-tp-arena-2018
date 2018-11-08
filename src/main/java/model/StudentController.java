@@ -1,5 +1,10 @@
 package model;
 
+import java.lang.reflect.Type;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -7,6 +12,7 @@ import com.sun.jersey.api.client.WebResource.Builder;
 
 import json.JSONParser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.HttpHeaders;
@@ -23,13 +29,17 @@ public class StudentController {
 
 	public Student getStudent() {
 		String response = StudentController.makeRequest("student").get(ClientResponse.class).getEntity(String.class);
-		return JSONParser.parseStudent(response);
+		Gson gson = new GsonBuilder().create();
+		return gson.fromJson(response, Student.class);
+//		return JSONParser.parseStudent(response);
 	}
 
 	public List<Assignment> getAssignments() {
 		String response = StudentController.makeRequest("student/assignments").get(ClientResponse.class)
 				.getEntity(String.class);
-		return JSONParser.parseAssignments(response);
+		Gson gson = new GsonBuilder().create();
+		Type listType = new TypeToken<ArrayList<Assignment>>(){}.getType();
+		return gson.fromJson(response, listType);
 	}
 
 	public void updateStudent(Student student) {
