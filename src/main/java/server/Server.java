@@ -46,7 +46,7 @@ public class Server {
 
 		Spark.get("/student", StudentController::getStudent);
 		Spark.get("/student/assignments", StudentController::getAssignments);
-		Spark.put("/student/assignments", StudentController::putStudent);
+		Spark.put("/student", StudentController::putStudent);
 
 		SecurityService securityService = new SecurityService("dds-utn-2018");
 
