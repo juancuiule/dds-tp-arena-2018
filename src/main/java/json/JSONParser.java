@@ -1,8 +1,13 @@
 package json;
 
 import java.lang.reflect.Type;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import model.ConceptualGrade;
+import model.Grade;
+import model.NumericGrade;
 
 public class JSONParser {
 	public static <T> T fromJson(String jsonString, Class<T> claseDeObjeto) {
@@ -23,48 +28,12 @@ public class JSONParser {
 	}
 
 	private static Gson generarGson() {
-		Gson gson = new GsonBuilder().create();
+		RuntimeTypeAdapterFactory<Grade> typeFactory = RuntimeTypeAdapterFactory
+				.of(Grade.class, "type")
+				.registerSubtype(ConceptualGrade.class)
+				.registerSubtype(NumericGrade.class);
+
+		Gson gson = new GsonBuilder().registerTypeAdapterFactory(typeFactory).create();
 		return gson;
 	}
-
-//	public static List<Assignment> parseAssignments(String jsonString) {
-//		JsonObject object = JSONParser.jsonStringToObject(jsonString);
-//		JsonArray assignments = object.getAsJsonArray("assignments");
-//		List<Assignment> assignmentsList = new ArrayList<Assignment>();
-//		assignments.forEach(assignment -> {
-//			Assignment assignmentObject = JSONParser.parseAssignment(assignment.getAsJsonObject());
-//			assignmentsList.add(assignmentObject);
-//		});
-//		return assignmentsList;
-//	}
-//
-//	public static Assignment parseAssignment(JsonObject assignment) {
-//		String title = assignment.get("title").getAsString();
-//		String description = assignment.get("description").getAsString();
-//		JsonArray grades = assignment.getAsJsonArray("grades");
-//		List<Grade> gradesList = new ArrayList<Grade>();
-//		grades.forEach(grade -> {
-//			Grade gradeObject = JSONParser.parseGrade(grade.getAsJsonObject());
-//			gradesList.add(gradeObject);
-//		});
-//		return new Assignment(title, description, gradesList);
-//	}
-//
-//	public static Grade parseGrade(JsonObject grade) {
-//		try {
-//			Double value = grade.get("value").getAsDouble();
-//			return new NumericGrade(value);
-//		} catch (NumberFormatException e) {
-//			String concepto = grade.get("value").getAsString();
-//			return new ConceptualGrade(concepto);
-//		}
-//	}
-//	
-//	public static String studentToJson(Student student) {
-//    	return "{"
-//		+ "\"code\": \"" + student.getCode() + "\","
-//		+ "\"first_name\":\"" + student.getFirstName() + "\","
-//		+ "\"last_name\":\"" + student.getLastName() + "\","
-//		+ "\"github_user\":\"" + student.getGithubUser() + "\"}";
-//	}
 }

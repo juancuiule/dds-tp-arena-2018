@@ -69,4 +69,8 @@ public class Student {
 		return this.assignments;
 	}
 
+	public void setAssignments(List<Assignment> prevAssignments) {
+		this.assignments = prevAssignments;
+	}
+
 }

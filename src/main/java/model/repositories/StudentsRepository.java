@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import model.Assignment;
 import model.Student;
 import model.exceptions.StudentNotFoundException;
 
@@ -31,7 +32,9 @@ public class StudentsRepository {
 	}
 	
 	public void updateStudent(Student student) {
-		Optional<Student> prev = this.students.stream().filter(s -> s.getCode().equals(student.getCode())).findFirst();
-		Collections.replaceAll(this.students, prev.get(), student);
+		Student prev = this.students.stream().filter(s -> s.getCode().equals(student.getCode())).findFirst().get();
+		List<Assignment> prevAssignments = prev.getAssignments();
+		student.setAssignments(prevAssignments);
+		Collections.replaceAll(this.students, prev, student);
 	}
 }

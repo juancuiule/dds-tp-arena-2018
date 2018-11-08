@@ -20,13 +20,11 @@ class Fixture {
 
 		NumericGrade nota1 = new NumericGrade(6d);
 		NumericGrade nota2 = new NumericGrade(7d);
-//		Assignment tpa1 = new Assignment("TPA1", "Primera parte del TP Anual", Arrays.asList(nota1, nota2));
-		Assignment tpa1 = new Assignment("TPA1", "Primera parte del TP Anual", Arrays.asList());
+		Assignment tpa1 = new Assignment("TPA1", "Primera parte del TP Anual", Arrays.asList(nota1, nota2));
 
 		ConceptualGrade notac1 = new ConceptualGrade("B");
 		ConceptualGrade notac2 = new ConceptualGrade("B-");
-//		Assignment tp2 = new Assignment("TP2", "2° TP Objetos", Arrays.asList(notac1, notac2));
-		Assignment tp2 = new Assignment("TP2", "2° TP Objetos", Arrays.asList());
+		Assignment tp2 = new Assignment("TP2", "2° TP Objetos", Arrays.asList(notac1, notac2));
 
 		juan.addAssignment(tpa1);
 		juan.addAssignment(tp2);
