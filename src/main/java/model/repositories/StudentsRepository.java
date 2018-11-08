@@ -1,6 +1,7 @@
 package model.repositories;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,7 +10,7 @@ import model.exceptions.StudentNotFoundException;
 
 public class StudentsRepository {
 
-	private List<Student> students = new LinkedList<>();
+	private List<Student> students = new ArrayList<Student>();
 
 	public void agregar(Student student) {
 		this.students.add(student);
@@ -27,5 +28,10 @@ public class StudentsRepository {
 		} else {
 			throw new StudentNotFoundException("No se encontre un estudiante con legajo: " + code);
 		}
+	}
+	
+	public void updateStudent(Student student) {
+		Optional<Student> prev = this.students.stream().filter(s -> s.getCode().equals(student.getCode())).findFirst();
+		Collections.replaceAll(this.students, prev.get(), student);
 	}
 }

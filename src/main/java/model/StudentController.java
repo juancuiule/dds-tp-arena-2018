@@ -38,12 +38,14 @@ public class StudentController {
 		String response = StudentController.makeRequest("student/assignments").get(ClientResponse.class)
 				.getEntity(String.class);
 		Gson gson = new GsonBuilder().create();
-		Type listType = new TypeToken<ArrayList<Assignment>>(){}.getType();
+		Type listType = new TypeToken<ArrayList<Assignment>>() {
+		}.getType();
 		return gson.fromJson(response, listType);
 	}
 
 	public void updateStudent(Student student) {
-		String jsonStudent = JSONParser.studentToJson(student);
+		Gson gson = new GsonBuilder().create();
+		String jsonStudent = gson.toJson(student);
 		String response = StudentController.makeRequest("student").put(ClientResponse.class, jsonStudent)
 				.getEntity(String.class);
 		System.out.println(response);

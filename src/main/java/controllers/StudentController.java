@@ -44,7 +44,8 @@ public class StudentController {
 
 	public static String putStudent(Request req, Response res) {
 		Gson gson = new GsonBuilder().create();
-		System.out.println(gson.fromJson(req.body(), Student.class));
+		Student student = gson.fromJson(req.body(), Student.class);
+		Respositories.estudiantes().updateStudent(student);
 		return "";
 	}
 }
