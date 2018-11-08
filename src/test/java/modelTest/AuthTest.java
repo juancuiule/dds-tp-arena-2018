@@ -21,10 +21,10 @@ public class AuthTest {
 		repoEstudiantes.agregar(juan);
 	}
 	
-	@Test
-	public void unEstudianteSeLoguea() {
-		assertTrue(Auth.loginEstudiante("1589386", "1234abcd"));
-	}
+//	@Test
+//	public void unEstudianteSeLoguea() {
+//		assertTrue(Auth.loginEstudiante("1589386", "1234abcd"));
+//	}
 	
 	@Test
 	public void unEstudianteNoSeLogueaPorPasswordIncorrecta() {

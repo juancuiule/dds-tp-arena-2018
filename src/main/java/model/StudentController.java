@@ -13,8 +13,8 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
 public class StudentController {
-	private static final String API_NOTITAS = "http://notitas.herokuapp.com/";
-	private static final String API_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMTEyMjIzMzMiLCJybmQiOiJ5SXNmZFIwN2lIR3BRRmVjYU9KT2VRPT0ifQ.9pVJGUXhrJPQ-TptNCt971l0h_1dWqWgMrHAWXJchho";
+	private static final String API_NOTITAS = "http://localhost:9000";
+	private static final String API_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSnVhbiBJZ25hY2lvIEN1aXVsZSIsImlkIjoxNTg5Mzg2fQ.BOqhX4la_zzMxYtp4mdXDIcrYwTi-oP9cBOVHjP55ls";
 
 	private static Builder makeRequest(String path) {
 		WebResource recurso = Client.create().resource(API_NOTITAS).path(path);
