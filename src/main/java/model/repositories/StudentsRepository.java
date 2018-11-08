@@ -20,8 +20,8 @@ public class StudentsRepository {
 	}
 
 	public Student findByCode(String code) throws StudentNotFoundException {
-		Optional<Student> maybeStudent = this.students.stream()
-				.filter(student -> student.getCode().equals(code)).findFirst();
+		Optional<Student> maybeStudent = this.students.stream().filter(student -> student.getCode().equals(code))
+				.findFirst();
 		if (maybeStudent.isPresent()) {
 			return maybeStudent.get();
 		} else {

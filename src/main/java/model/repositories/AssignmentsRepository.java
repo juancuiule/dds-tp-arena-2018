@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Assignment;
+import model.exceptions.StudentNotFoundException;
 
 public class AssignmentsRepository {
 
@@ -18,8 +19,13 @@ public class AssignmentsRepository {
 	}
 
 	public List<Assignment> asignacionesPara(String code) {
-//		String response = new StudentController().getAssignments().getEntity(String.class);
-//		System.out.println(response);
-		return assignments;
+		List<Assignment> assignmentsForStudent = null;
+		try {
+			assignmentsForStudent = Respositories.estudiantes().findByCode(code).getAssignments();
+		} catch (StudentNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return assignmentsForStudent;
 	}
 }
