@@ -1,8 +1,5 @@
 package controllers;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import json.JSONParser;
 import model.Student;
 import model.exceptions.StudentNotFoundException;
@@ -28,23 +25,18 @@ public class StudentController {
 	public static String getStudent(Request req, Response res) {
 		Student student = StudentController.studentFromSession(req, res);
 		res.type("application/json");
-		Gson gson = new GsonBuilder().create();
-		System.out.println(gson.toJson(student));
-		return gson.toJson(student);
+		return JSONParser.toJson(student);
 	}
 
 	public static String getAssignments(Request req, Response res) {
 		Student student = StudentController.studentFromSession(req, res);
-		Gson gson = new GsonBuilder().create();
-		System.out.println(gson.toJson(student.getAssignments()));
 		res.type("application/json");
-		return gson.toJson(student.getAssignments());
+		return JSONParser.toJson(student.getAssignments());
 
 	}
 
 	public static String putStudent(Request req, Response res) {
-		Gson gson = new GsonBuilder().create();
-		Student student = gson.fromJson(req.body(), Student.class);
+		Student student = JSONParser.fromJson(req.body(), Student.class);
 		Respositories.estudiantes().updateStudent(student);
 		return "";
 	}

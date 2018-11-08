@@ -4,8 +4,6 @@ import org.uqbar.commons.utils.Observable;
 
 import model.Student;
 import model.StudentController;
-import model.exceptions.StudentNotFoundException;
-import model.repositories.Respositories;
 
 @Observable
 public class ProfileViewModel {

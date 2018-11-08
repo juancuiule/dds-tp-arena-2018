@@ -10,12 +10,11 @@ import model.repositories.Respositories;
 @Observable
 public class LoginViewModel {
 
-	private List<Student> estudiantes;
 	private String code = "1589386";
 	private String password = "1234abcd";
 
 	public LoginViewModel() {
-		this.estudiantes = Respositories.estudiantes.all();
+		Respositories.estudiantes.all();
 	}
 
 	public String getCode() {
