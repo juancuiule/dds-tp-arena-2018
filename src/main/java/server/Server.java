@@ -1,9 +1,7 @@
 package server;
 
-import server.security.SecurityService;
 import spark.Spark;
 import spark.debug.DebugScreen;
-import controllers.StudentController;
 import model.Student;
 import model.repositories.Respositories;
 
@@ -38,27 +36,11 @@ public class Server {
 
 		Fixture.excecute();
 
+		Router.configure();
+
 		Spark.port(9000);
+
 		DebugScreen.enableDebugScreen();
-		Spark.get("/", (req, res) -> "Holiiiiii");
-
-		Spark.get("/student", StudentController::getStudent);
-		Spark.get("/student/assignments", StudentController::getAssignments);
-		Spark.put("/student", StudentController::putStudent);
-
-		SecurityService securityService = new SecurityService("dds-utn-2018");
-
-		Spark.before((req, res) -> {
-			try {
-				Long userId = securityService.user(req.headers("Authorization").replace("Bearer ", ""));
-				Student student = Respositories.estudiantes().findByCode(userId.toString());
-				req.session().attribute("student", student);
-				System.out.println(student);
-			} catch (Exception e) {
-				Spark.halt(401,
-						"<h1><a href='https://www.youtube.com/watch?v=0Jx8Eay5fWQ'>Hack me </a></h1><br/><br/><br/><a href='https://www.youtube.com/watch?v=PtLmEARfStE'> El aleph </a>");
-			}
-		});
 	}
 
 }
