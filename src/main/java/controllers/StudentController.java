@@ -9,26 +9,21 @@ import spark.Response;
 
 public class StudentController {
 
-	public static Student studentFromSession(Request req, Response res) {
+	public static Student studentFromSession(Request req, Response res) throws StudentNotFoundException {
 		Student student = req.session().attribute("student");
 		String code = student.getCode();
 		Student studentObject = null;
-		try {
-			studentObject = Respositories.estudiantes().findByCode(code);
-		} catch (StudentNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		studentObject = Respositories.estudiantes().findByCode(code);
 		return studentObject;
 	}
 
-	public static String getStudent(Request req, Response res) {
+	public static String getStudent(Request req, Response res) throws StudentNotFoundException {
 		Student student = StudentController.studentFromSession(req, res);
 		res.type("application/json");
 		return JSONParser.toJson(student);
 	}
 
-	public static String getAssignments(Request req, Response res) {
+	public static String getAssignments(Request req, Response res) throws StudentNotFoundException {
 		Student student = StudentController.studentFromSession(req, res);
 		res.type("application/json");
 		return JSONParser.toJson(student.getAssignments());
