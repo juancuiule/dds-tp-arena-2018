@@ -36,11 +36,9 @@ public class Server {
 
 		Fixture.excecute();
 
-		Router.configure();
-
 		Spark.port(9000);
+		Router.configure();
 
 		DebugScreen.enableDebugScreen();
 	}
-
 }

@@ -1,6 +1,7 @@
 package server;
 
 import controllers.*;
+import json.JsonTransformer;
 import model.Student;
 import model.repositories.Respositories;
 import server.security.SecurityService;
@@ -9,8 +10,8 @@ import spark.Spark;
 public class Router {
 	public static void configure() {
 
-		Spark.get("/student", StudentController::getStudent);
-		Spark.get("/student/assignments", StudentController::getAssignments);
+		Spark.get("/student", StudentController::getStudent, new JsonTransformer());
+		Spark.get("/student/assignments", StudentController::getAssignments, new JsonTransformer());
 		Spark.put("/student", StudentController::putStudent);
 
 		SecurityService securityService = new SecurityService("dds-utn-2018");

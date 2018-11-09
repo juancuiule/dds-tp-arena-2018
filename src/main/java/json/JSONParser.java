@@ -27,7 +27,7 @@ public class JSONParser {
 		return gson.toJson(any);
 	}
 
-	private static Gson generarGson() {
+	static Gson generarGson() {
 		RuntimeTypeAdapterFactory<Grade> typeFactory = RuntimeTypeAdapterFactory
 				.of(Grade.class, "type")
 				.registerSubtype(ConceptualGrade.class)
